@@ -1,265 +1,685 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.dropbtn {
-  background-color: #6495ed;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .dropbtn {
+      background-color: #6495ed;
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
 
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #6495ed;
-}
-  
-#myInput {
-  box-sizing: border-box;
-  background-image: url('searchicon.png');
-  background-position: 14px 12px;
-  background-repeat: no-repeat;
-  font-size: 16px;
-  padding: 14px 20px 12px 45px;
-  border: none;
-  border-bottom: 1px solid #ddd;
-}
 
-#myInput:focus {outline: 3px solid #ddd;}
+    .dropbtn:hover, .dropbtn:focus {
+      background-color: #6495ed;
+    }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+    #myInput {
+      box-sizing: border-box;
+    / / background-image: url('searchicon.png');
+      background-position: 14px 12px;
+      background-repeat: no-repeat;
+      font-size: 16px;
+      padding: 14px 20px 12px 45px;
+      border: none;
+      border-bottom: 1px solid #ddd;
+    }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f6f6f6;
-  min-width: 230px;
-  overflow: auto;
-  border: 1px solid #ddd;
-  z-index: 1;
-}
+    #myInput:focus {
+      outline: 3px solid #ddd;
+    }
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
 
-.dropdown a:hover {background-color: #ddd;}
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f6f6f6;
+      min-width: 230px;
+      overflow: auto;
+      border: 1px solid #ddd;
+      z-index: 1;
+    }
 
-.show {display: block;}
-</style>
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown a:hover {
+      background-color: #ddd;
+    }
+
+    .show {
+      display: block;
+    }
+
+    .container {
+      position: relative;
+      height: 1em;
+    }
+
+    select {
+      position: absolute;
+    }
+
+    p {
+      font-size: 16px;
+      font-family: sans-serif;
+    }
+
+    label {
+      font-size: 18px;
+      font-family: sans-serif;
+    }
+
+
+  </style>
 </head>
 <body>
 
-<h2>Search/Filter Dropdown</h2>
-<p>Click on the button to open the dropdown menu, and use the input field to search for a specific currency.</p>
+<h2>Goat Payout Calculator</h2>
+<p>
+  Select payout currency (as displayed on Goat) and exchange currency (e.g. your local currency) using the dropdown
+  menus.
+  <br>
+  Press the button below to calculate your payout.
+</p>
 
+<!-- >Redundant atm (currency list with search function)-->
+<!--
 <div class="dropdown">
   <button onclick="myFunction()" class="dropbtn">Currencies</button>
   <div id="myDropdown" class="dropdown-content">
-    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-      <a href="#aed">AED</a>
-      <a href="#afn">AFN</a>
-      <a href="#all">ALL</a>
-      <a href="#amd">AMD</a>
-      <a href="#ang">ANG</a>
-      <a href="#aoa">AOA</a>
-      <a href="#ars">ARS</a>
-      <a href="#aud">AUD</a>
-      <a href="#awg">AWG</a>
-      <a href="#azn">AZN</a>
-      <a href="#bam">BAM</a>
-      <a href="#bbd">BBD</a>
-      <a href="#bdt">BDT</a>
-      <a href="#bgn">BGN</a>
-      <a href="#bhd">BHD</a>
-      <a href="#bif">BIF</a>
-      <a href="#bmd">BMD</a>
-      <a href="#bnd">BND</a>
-      <a href="#bob">BOB</a>
-      <a href="#brl">BRL</a>
-      <a href="#bsd">BSD</a>
-      <a href="#btc">BTC</a>
-      <a href="#btn">BTN</a>
-      <a href="#bwp">BWP</a>
-      <a href="#byn">BYN</a>
-      <a href="#byr">BYR</a>
-      <a href="#bzd">BZD</a>
-      <a href="#cad">CAD</a>
-      <a href="#cdf">CDF</a>
-      <a href="#chf">CHF</a>
-      <a href="#clf">CLF</a>
-      <a href="#clp">CLP</a>
-      <a href="#cny">CNY</a>
-      <a href="#cop">COP</a>
-      <a href="#crc">CRC</a>
-      <a href="#cuc">CUC</a>
-      <a href="#cup">CUP</a>
-      <a href="#cve">CVE</a>
-      <a href="#czk">CZK</a>
-      <a href="#djf">DJF</a>
-      <a href="#dkk">DKK</a>
-      <a href="#dop">DOP</a>
-      <a href="#dzd">DZD</a>
-      <a href="#egp">EGP</a>
-      <a href="#ern">ERN</a>
-      <a href="#etb">ETB</a>
-      <a href="#eur">EUR</a>
-      <a href="#fjd">FJD</a>
-      <a href="#fkp">FKP</a>
-      <a href="#gbp">GBP</a>
-      <a href="#gel">GEL</a>
-      <a href="#ggp">GGP</a>
-      <a href="#ghs">GHS</a>
-      <a href="#gip">GIP</a>
-      <a href="#gmd">GMD</a>
-      <a href="#gnf">GNF</a>
-      <a href="#gtq">GTQ</a>
-      <a href="#gyd">GYD</a>
-      <a href="#hkd">HKD</a>
-      <a href="#hnl">HNL</a>
-      <a href="#hrk">HRK</a>
-      <a href="#htg">HTG</a>
-      <a href="#huf">HUF</a>
-      <a href="#idr">IDR</a>
-      <a href="#ils">ILS</a>
-      <a href="#imp">IMP</a>
-      <a href="#inr">INR</a>
-      <a href="#iqd">IQD</a>
-      <a href="#irr">IRR</a>
-      <a href="#isk">ISK</a>
-      <a href="#jep">JEP</a>
-      <a href="#jmd">JMD</a>
-      <a href="#jod">JOD</a>
-      <a href="#jpy">JPY</a>
-      <a href="#kes">KES</a>
-      <a href="#kgs">KGS</a>
-      <a href="#khr">KHR</a>
-      <a href="#kmf">KMF</a>
-      <a href="#kpw">KPW</a>
-      <a href="#krw">KRW</a>
-      <a href="#kwd">KWD</a>
-      <a href="#kyd">KYD</a>
-      <a href="#kzt">KZT</a>
-      <a href="#lak">LAK</a>
-      <a href="#lbp">LBP</a>
-      <a href="#lkr">LKR</a>
-      <a href="#lrd">LRD</a>
-      <a href="#lsl">LSL</a>
-      <a href="#ltl">LTL</a>
-      <a href="#lvl">LVL</a>
-      <a href="#lyd">LYD</a>
-      <a href="#mad">MAD</a>
-      <a href="#mdl">MDL</a>
-      <a href="#mga">MGA</a>
-      <a href="#mkd">MKD</a>
-      <a href="#mmk">MMK</a>
-      <a href="#mnt">MNT</a>
-      <a href="#mop">MOP</a>
-      <a href="#mro">MRO</a>
-      <a href="#mur">MUR</a>
-      <a href="#mvr">MVR</a>
-      <a href="#mwk">MWK</a>
-      <a href="#mxn">MXN</a>
-      <a href="#myr">MYR</a>
-      <a href="#mzn">MZN</a>
-      <a href="#nad">NAD</a>
-      <a href="#ngn">NGN</a>
-      <a href="#nio">NIO</a>
-      <a href="#nok">NOK</a>
-      <a href="#npr">NPR</a>
-      <a href="#nzd">NZD</a>
-      <a href="#omr">OMR</a>
-      <a href="#pab">PAB</a>
-      <a href="#pen">PEN</a>
-      <a href="#pgk">PGK</a>
-      <a href="#php">PHP</a>
-      <a href="#pkr">PKR</a>
-      <a href="#pln">PLN</a>
-      <a href="#pyg">PYG</a>
-      <a href="#qar">QAR</a>
-      <a href="#ron">RON</a>
-      <a href="#rsd">RSD</a>
-      <a href="#rub">RUB</a>
-      <a href="#rwf">RWF</a>
-      <a href="#sar">SAR</a>
-      <a href="#sbd">SBD</a>
-      <a href="#scr">SCR</a>
-      <a href="#sdg">SDG</a>
-      <a href="#sek">SEK</a>
-      <a href="#sgd">SGD</a>
-      <a href="#shp">SHP</a>
-      <a href="#sll">SLL</a>
-      <a href="#sos">SOS</a>
-      <a href="#srd">SRD</a>
-      <a href="#std">STD</a>
-      <a href="#svc">SVC</a>
-      <a href="#syp">SYP</a>
-      <a href="#szl">SZL</a>
-      <a href="#thb">THB</a>
-      <a href="#tjs">TJS</a>
-      <a href="#tmt">TMT</a>
-      <a href="#tnd">TND</a>
-      <a href="#top">TOP</a>
-      <a href="#try">TRY</a>
-      <a href="#ttd">TTD</a>
-      <a href="#twd">TWD</a>
-      <a href="#tzs">TZS</a>
-      <a href="#uah">UAH</a>
-      <a href="#ugx">UGX</a>
-      <a href="#usd">USD</a>
-      <a href="#uyu">UYU</a>
-      <a href="#uzs">UZS</a>
-      <a href="#vef">VEF</a>
-      <a href="#vnd">VND</a>
-      <a href="#vuv">VUV</a>
-      <a href="#wst">WST</a>
-      <a href="#xaf">XAF</a>
-      <a href="#xag">XAG</a>
-      <a href="#xau">XAU</a>
-      <a href="#xcd">XCD</a>
-      <a href="#xdr">XDR</a>
-      <a href="#xof">XOF</a>
-      <a href="#xpf">XPF</a>
-      <a href="#yer">YER</a>
-      <a href="#zar">ZAR</a>
-      <a href="#zmk">ZMK</a>
-      <a href="#zmw">ZMW</a>
-      <a href="#zwl">ZWL</a>
+    <datalist type="text" id="myInput" onkeyup="filterFunction()">
+      <option value="aed">AED</option>
+      <option value="afn">AFN</option>
+      <option value="all">ALL</option>
+      <option value="amd">AMD</option>
+      <option value="ang">ANG</option>
+      <option value="aoa">AOA</option>
+      <option value="ars">ARS</option>
+      <option value="aud">AUD</option>
+      <option value="awg">AWG</option>
+      <option value="azn">AZN</option>
+      <option value="bam">BAM</option>
+      <option value="bbd">BBD</option>
+      <option value="bdt">BDT</option>
+      <option value="bgn">BGN</option>
+      <option value="bhd">BHD</option>
+      <option value="bif">BIF</option>
+      <option value="bmd">BMD</option>
+      <option value="bnd">BND</option>
+      <option value="bob">BOB</option>
+      <option value="brl">BRL</option>
+      <option value="bsd">BSD</option>
+      <option value="btc">BTC</option>
+      <option value="btn">BTN</option>
+      <option value="bwp">BWP</option>
+      <option value="byn">BYN</option>
+      <option value="byr">BYR</option>
+      <option value="bzd">BZD</option>
+      <option value="cad">CAD</option>
+      <option value="cdf">CDF</option>
+      <option value="chf">CHF</option>
+      <option value="clf">CLF</option>
+      <option value="clp">CLP</option>
+      <option value="cny">CNY</option>
+      <option value="cop">COP</option>
+      <option value="crc">CRC</option>
+      <option value="cuc">CUC</option>
+      <option value="cup">CUP</option>
+      <option value="cve">CVE</option>
+      <option value="czk">CZK</option>
+      <option value="djf">DJF</option>
+      <option value="dkk">DKK</option>
+      <option value="dop">DOP</option>
+      <option value="dzd">DZD</option>
+      <option value="egp">EGP</option>
+      <option value="ern">ERN</option>
+      <option value="etb">ETB</option>
+      <option value="eur">EUR</option>
+      <option value="fjd">FJD</option>
+      <option value="fkp">FKP</option>
+      <option value="gbp">GBP</option>
+      <option value="gel">GEL</option>
+      <option value="ggp">GGP</option>
+      <option value="ghs">GHS</option>
+      <option value="gip">GIP</option>
+      <option value="gmd">GMD</option>
+      <option value="gnf">GNF</option>
+      <option value="gtq">GTQ</option>
+      <option value="gyd">GYD</option>
+      <option value="hkd">HKD</option>
+      <option value="hnl">HNL</option>
+      <option value="hrk">HRK</option>
+      <option value="htg">HTG</option>
+      <option value="huf">HUF</option>
+      <option value="idr">IDR</option>
+      <option value="ils">ILS</option>
+      <option value="imp">IMP</option>
+      <option value="inr">INR</option>
+      <option value="iqd">IQD</option>
+      <option value="irr">IRR</option>
+      <option value="isk">ISK</option>
+      <option value="jep">JEP</option>
+      <option value="jmd">JMD</option>
+      <option value="jod">JOD</option>
+      <option value="jpy">JPY</option>
+      <option value="kes">KES</option>
+      <option value="kgs">KGS</option>
+      <option value="khr">KHR</option>
+      <option value="kmf">KMF</option>
+      <option value="kpw">KPW</option>
+      <option value="krw">KRW</option>
+      <option value="kwd">KWD</option>
+      <option value="kyd">KYD</option>
+      <option value="kzt">KZT</option>
+      <option value="lak">LAK</option>
+      <option value="lbp">LBP</option>
+      <option value="lkr">LKR</option>
+      <option value="lrd">LRD</option>
+      <option value="lsl">LSL</option>
+      <option value="ltl">LTL</option>
+      <option value="lvl">LVL</option>
+      <option value="lyd">LYD</option>
+      <option value="mad">MAD</option>
+      <option value="mdl">MDL</option>
+      <option value="mga">MGA</option>
+      <option value="mkd">MKD</option>
+      <option value="mmk">MMK</option>
+      <option value="mnt">MNT</option>
+      <option value="mop">MOP</option>
+      <option value="mro">MRO</option>
+      <option value="mur">MUR</option>
+      <option value="mvr">MVR</option>
+      <option value="mwk">MWK</option>
+      <option value="mxn">MXN</option>
+      <option value="myr">MYR</option>
+      <option value="mzn">MZN</option>
+      <option value="nad">NAD</option>
+      <option value="ngn">NGN</option>
+      <option value="nio">NIO</option>
+      <option value="nok">NOK</option>
+      <option value="npr">NPR</option>
+      <option value="nzd">NZD</option>
+      <option value="omr">OMR</option>
+      <option value="pab">PAB</option>
+      <option value="pen">PEN</option>
+      <option value="pgk">PGK</option>
+      <option value="php">PHP</option>
+      <option value="pkr">PKR</option>
+      <option value="pln">PLN</option>
+      <option value="pyg">PYG</option>
+      <option value="qar">QAR</option>
+      <option value="ron">RON</option>
+      <option value="rsd">RSD</option>
+      <option value="rub">RUB</option>
+      <option value="rwf">RWF</option>
+      <option value="sar">SAR</option>
+      <option value="sbd">SBD</option>
+      <option value="scr">SCR</option>
+      <option value="sdg">SDG</option>
+      <option value="sek">SEK</option>
+      <option value="sgd">SGD</option>
+      <option value="shp">SHP</option>
+      <option value="sll">SLL</option>
+      <option value="sos">SOS</option>
+      <option value="srd">SRD</option>
+      <option value="std">STD</option>
+      <option value="svc">SVC</option>
+      <option value="syp">SYP</option>
+      <option value="szl">SZL</option>
+      <option value="thb">THB</option>
+      <option value="tjs">TJS</option>
+      <option value="tmt">TMT</option>
+      <option value="tnd">TND</option>
+      <option value="top">TOP</option>
+      <option value="try">TRY</option>
+      <option value="ttd">TTD</option>
+      <option value="twd">TWD</option>
+      <option value="tzs">TZS</option>
+      <option value="uah">UAH</option>
+      <option value="ugx">UGX</option>
+      <option value="usd">USD</option>
+      <option value="uyu">UYU</option>
+      <option value="uzs">UZS</option>
+      <option value="vef">VEF</option>
+      <option value="vnd">VND</option>
+      <option value="vuv">VUV</option>
+      <option value="wst">WST</option>
+      <option value="xaf">XAF</option>
+      <option value="xag">XAG</option>
+      <option value="xau">XAU</option>
+      <option value="xcd">XCD</option>
+      <option value="xdr">XDR</option>
+      <option value="xof">XOF</option>
+      <option value="xpf">XPF</option>
+      <option value="yer">YER</option>
+      <option value="zar">ZAR</option>
+      <option value="zmk">ZMK</option>
+      <option value="zmw">ZMW</option>
+      <option value="zwl">ZWL</option>
+    </datalist>
   </div>
 </div>
+-->
+
+<!-- Datalist of currencies -->
+<label for="goatCurrency">Enter currency on Goat:</label>
+<br>
+<input list="goatCurrency" style="width:60px;height:30px;font-size:20px;;text-align:center;text-transform: uppercase">
+<datalist id="goatCurrency">
+  <option value="aed">AED</option>
+  <option value="afn">AFN</option>
+  <option value="all">ALL</option>
+  <option value="amd">AMD</option>
+  <option value="ang">ANG</option>
+  <option value="aoa">AOA</option>
+  <option value="ars">ARS</option>
+  <option value="aud">AUD</option>
+  <option value="awg">AWG</option>
+  <option value="azn">AZN</option>
+  <option value="bam">BAM</option>
+  <option value="bbd">BBD</option>
+  <option value="bdt">BDT</option>
+  <option value="bgn">BGN</option>
+  <option value="bhd">BHD</option>
+  <option value="bif">BIF</option>
+  <option value="bmd">BMD</option>
+  <option value="bnd">BND</option>
+  <option value="bob">BOB</option>
+  <option value="brl">BRL</option>
+  <option value="bsd">BSD</option>
+  <option value="btc">BTC</option>
+  <option value="btn">BTN</option>
+  <option value="bwp">BWP</option>
+  <option value="byn">BYN</option>
+  <option value="byr">BYR</option>
+  <option value="bzd">BZD</option>
+  <option value="cad">CAD</option>
+  <option value="cdf">CDF</option>
+  <option value="chf">CHF</option>
+  <option value="clf">CLF</option>
+  <option value="clp">CLP</option>
+  <option value="cny">CNY</option>
+  <option value="cop">COP</option>
+  <option value="crc">CRC</option>
+  <option value="cuc">CUC</option>
+  <option value="cup">CUP</option>
+  <option value="cve">CVE</option>
+  <option value="czk">CZK</option>
+  <option value="djf">DJF</option>
+  <option value="dkk">DKK</option>
+  <option value="dop">DOP</option>
+  <option value="dzd">DZD</option>
+  <option value="egp">EGP</option>
+  <option value="ern">ERN</option>
+  <option value="etb">ETB</option>
+  <option value="eur">EUR</option>
+  <option value="fjd">FJD</option>
+  <option value="fkp">FKP</option>
+  <option value="gbp">GBP</option>
+  <option value="gel">GEL</option>
+  <option value="ggp">GGP</option>
+  <option value="ghs">GHS</option>
+  <option value="gip">GIP</option>
+  <option value="gmd">GMD</option>
+  <option value="gnf">GNF</option>
+  <option value="gtq">GTQ</option>
+  <option value="gyd">GYD</option>
+  <option value="hkd">HKD</option>
+  <option value="hnl">HNL</option>
+  <option value="hrk">HRK</option>
+  <option value="htg">HTG</option>
+  <option value="huf">HUF</option>
+  <option value="idr">IDR</option>
+  <option value="ils">ILS</option>
+  <option value="imp">IMP</option>
+  <option value="inr">INR</option>
+  <option value="iqd">IQD</option>
+  <option value="irr">IRR</option>
+  <option value="isk">ISK</option>
+  <option value="jep">JEP</option>
+  <option value="jmd">JMD</option>
+  <option value="jod">JOD</option>
+  <option value="jpy">JPY</option>
+  <option value="kes">KES</option>
+  <option value="kgs">KGS</option>
+  <option value="khr">KHR</option>
+  <option value="kmf">KMF</option>
+  <option value="kpw">KPW</option>
+  <option value="krw">KRW</option>
+  <option value="kwd">KWD</option>
+  <option value="kyd">KYD</option>
+  <option value="kzt">KZT</option>
+  <option value="lak">LAK</option>
+  <option value="lbp">LBP</option>
+  <option value="lkr">LKR</option>
+  <option value="lrd">LRD</option>
+  <option value="lsl">LSL</option>
+  <option value="ltl">LTL</option>
+  <option value="lvl">LVL</option>
+  <option value="lyd">LYD</option>
+  <option value="mad">MAD</option>
+  <option value="mdl">MDL</option>
+  <option value="mga">MGA</option>
+  <option value="mkd">MKD</option>
+  <option value="mmk">MMK</option>
+  <option value="mnt">MNT</option>
+  <option value="mop">MOP</option>
+  <option value="mro">MRO</option>
+  <option value="mur">MUR</option>
+  <option value="mvr">MVR</option>
+  <option value="mwk">MWK</option>
+  <option value="mxn">MXN</option>
+  <option value="myr">MYR</option>
+  <option value="mzn">MZN</option>
+  <option value="nad">NAD</option>
+  <option value="ngn">NGN</option>
+  <option value="nio">NIO</option>
+  <option value="nok">NOK</option>
+  <option value="npr">NPR</option>
+  <option value="nzd">NZD</option>
+  <option value="omr">OMR</option>
+  <option value="pab">PAB</option>
+  <option value="pen">PEN</option>
+  <option value="pgk">PGK</option>
+  <option value="php">PHP</option>
+  <option value="pkr">PKR</option>
+  <option value="pln">PLN</option>
+  <option value="pyg">PYG</option>
+  <option value="qar">QAR</option>
+  <option value="ron">RON</option>
+  <option value="rsd">RSD</option>
+  <option value="rub">RUB</option>
+  <option value="rwf">RWF</option>
+  <option value="sar">SAR</option>
+  <option value="sbd">SBD</option>
+  <option value="scr">SCR</option>
+  <option value="sdg">SDG</option>
+  <option value="sek">SEK</option>
+  <option value="sgd">SGD</option>
+  <option value="shp">SHP</option>
+  <option value="sll">SLL</option>
+  <option value="sos">SOS</option>
+  <option value="srd">SRD</option>
+  <option value="std">STD</option>
+  <option value="svc">SVC</option>
+  <option value="syp">SYP</option>
+  <option value="szl">SZL</option>
+  <option value="thb">THB</option>
+  <option value="tjs">TJS</option>
+  <option value="tmt">TMT</option>
+  <option value="tnd">TND</option>
+  <option value="top">TOP</option>
+  <option value="try">TRY</option>
+  <option value="ttd">TTD</option>
+  <option value="twd">TWD</option>
+  <option value="tzs">TZS</option>
+  <option value="uah">UAH</option>
+  <option value="ugx">UGX</option>
+  <option value="usd">USD</option>
+  <option value="uyu">UYU</option>
+  <option value="uzs">UZS</option>
+  <option value="vef">VEF</option>
+  <option value="vnd">VND</option>
+  <option value="vuv">VUV</option>
+  <option value="wst">WST</option>
+  <option value="xaf">XAF</option>
+  <option value="xag">XAG</option>
+  <option value="xau">XAU</option>
+  <option value="xcd">XCD</option>
+  <option value="xdr">XDR</option>
+  <option value="xof">XOF</option>
+  <option value="xpf">XPF</option>
+  <option value="yer">YER</option>
+  <option value="zar">ZAR</option>
+  <option value="zmk">ZMK</option>
+  <option value="zmw">ZMW</option>
+  <option value="zwl">ZWL</option>
+</datalist>
+
+<br>
+
+<label for="exchangeCurrency">Enter payout currency:</label>
+<br>
+<input list="exchangeCurrency"
+       style="width:60px;height:30px;font-size:20px;;text-align:center;text-transform: uppercase">
+<datalist id="exchangeCurrency">
+  <option value="aed">AED</option>
+  <option value="afn">AFN</option>
+  <option value="all">ALL</option>
+  <option value="amd">AMD</option>
+  <option value="ang">ANG</option>
+  <option value="aoa">AOA</option>
+  <option value="ars">ARS</option>
+  <option value="aud">AUD</option>
+  <option value="awg">AWG</option>
+  <option value="azn">AZN</option>
+  <option value="bam">BAM</option>
+  <option value="bbd">BBD</option>
+  <option value="bdt">BDT</option>
+  <option value="bgn">BGN</option>
+  <option value="bhd">BHD</option>
+  <option value="bif">BIF</option>
+  <option value="bmd">BMD</option>
+  <option value="bnd">BND</option>
+  <option value="bob">BOB</option>
+  <option value="brl">BRL</option>
+  <option value="bsd">BSD</option>
+  <option value="btc">BTC</option>
+  <option value="btn">BTN</option>
+  <option value="bwp">BWP</option>
+  <option value="byn">BYN</option>
+  <option value="byr">BYR</option>
+  <option value="bzd">BZD</option>
+  <option value="cad">CAD</option>
+  <option value="cdf">CDF</option>
+  <option value="chf">CHF</option>
+  <option value="clf">CLF</option>
+  <option value="clp">CLP</option>
+  <option value="cny">CNY</option>
+  <option value="cop">COP</option>
+  <option value="crc">CRC</option>
+  <option value="cuc">CUC</option>
+  <option value="cup">CUP</option>
+  <option value="cve">CVE</option>
+  <option value="czk">CZK</option>
+  <option value="djf">DJF</option>
+  <option value="dkk">DKK</option>
+  <option value="dop">DOP</option>
+  <option value="dzd">DZD</option>
+  <option value="egp">EGP</option>
+  <option value="ern">ERN</option>
+  <option value="etb">ETB</option>
+  <option value="eur">EUR</option>
+  <option value="fjd">FJD</option>
+  <option value="fkp">FKP</option>
+  <option value="gbp">GBP</option>
+  <option value="gel">GEL</option>
+  <option value="ggp">GGP</option>
+  <option value="ghs">GHS</option>
+  <option value="gip">GIP</option>
+  <option value="gmd">GMD</option>
+  <option value="gnf">GNF</option>
+  <option value="gtq">GTQ</option>
+  <option value="gyd">GYD</option>
+  <option value="hkd">HKD</option>
+  <option value="hnl">HNL</option>
+  <option value="hrk">HRK</option>
+  <option value="htg">HTG</option>
+  <option value="huf">HUF</option>
+  <option value="idr">IDR</option>
+  <option value="ils">ILS</option>
+  <option value="imp">IMP</option>
+  <option value="inr">INR</option>
+  <option value="iqd">IQD</option>
+  <option value="irr">IRR</option>
+  <option value="isk">ISK</option>
+  <option value="jep">JEP</option>
+  <option value="jmd">JMD</option>
+  <option value="jod">JOD</option>
+  <option value="jpy">JPY</option>
+  <option value="kes">KES</option>
+  <option value="kgs">KGS</option>
+  <option value="khr">KHR</option>
+  <option value="kmf">KMF</option>
+  <option value="kpw">KPW</option>
+  <option value="krw">KRW</option>
+  <option value="kwd">KWD</option>
+  <option value="kyd">KYD</option>
+  <option value="kzt">KZT</option>
+  <option value="lak">LAK</option>
+  <option value="lbp">LBP</option>
+  <option value="lkr">LKR</option>
+  <option value="lrd">LRD</option>
+  <option value="lsl">LSL</option>
+  <option value="ltl">LTL</option>
+  <option value="lvl">LVL</option>
+  <option value="lyd">LYD</option>
+  <option value="mad">MAD</option>
+  <option value="mdl">MDL</option>
+  <option value="mga">MGA</option>
+  <option value="mkd">MKD</option>
+  <option value="mmk">MMK</option>
+  <option value="mnt">MNT</option>
+  <option value="mop">MOP</option>
+  <option value="mro">MRO</option>
+  <option value="mur">MUR</option>
+  <option value="mvr">MVR</option>
+  <option value="mwk">MWK</option>
+  <option value="mxn">MXN</option>
+  <option value="myr">MYR</option>
+  <option value="mzn">MZN</option>
+  <option value="nad">NAD</option>
+  <option value="ngn">NGN</option>
+  <option value="nio">NIO</option>
+  <option value="nok">NOK</option>
+  <option value="npr">NPR</option>
+  <option value="nzd">NZD</option>
+  <option value="omr">OMR</option>
+  <option value="pab">PAB</option>
+  <option value="pen">PEN</option>
+  <option value="pgk">PGK</option>
+  <option value="php">PHP</option>
+  <option value="pkr">PKR</option>
+  <option value="pln">PLN</option>
+  <option value="pyg">PYG</option>
+  <option value="qar">QAR</option>
+  <option value="ron">RON</option>
+  <option value="rsd">RSD</option>
+  <option value="rub">RUB</option>
+  <option value="rwf">RWF</option>
+  <option value="sar">SAR</option>
+  <option value="sbd">SBD</option>
+  <option value="scr">SCR</option>
+  <option value="sdg">SDG</option>
+  <option value="sek">SEK</option>
+  <option value="sgd">SGD</option>
+  <option value="shp">SHP</option>
+  <option value="sll">SLL</option>
+  <option value="sos">SOS</option>
+  <option value="srd">SRD</option>
+  <option value="std">STD</option>
+  <option value="svc">SVC</option>
+  <option value="syp">SYP</option>
+  <option value="szl">SZL</option>
+  <option value="thb">THB</option>
+  <option value="tjs">TJS</option>
+  <option value="tmt">TMT</option>
+  <option value="tnd">TND</option>
+  <option value="top">TOP</option>
+  <option value="try">TRY</option>
+  <option value="ttd">TTD</option>
+  <option value="twd">TWD</option>
+  <option value="tzs">TZS</option>
+  <option value="uah">UAH</option>
+  <option value="ugx">UGX</option>
+  <option value="usd">USD</option>
+  <option value="uyu">UYU</option>
+  <option value="uzs">UZS</option>
+  <option value="vef">VEF</option>
+  <option value="vnd">VND</option>
+  <option value="vuv">VUV</option>
+  <option value="wst">WST</option>
+  <option value="xaf">XAF</option>
+  <option value="xag">XAG</option>
+  <option value="xau">XAU</option>
+  <option value="xcd">XCD</option>
+  <option value="xdr">XDR</option>
+  <option value="xof">XOF</option>
+  <option value="xpf">XPF</option>
+  <option value="yer">YER</option>
+  <option value="zar">ZAR</option>
+  <option value="zmk">ZMK</option>
+  <option value="zmw">ZMW</option>
+  <option value="zwl">ZWL</option>
+</datalist>
+
+<br>
+
+<!-- Select list of seller locations -->
+<select name="location" id="location">
+  <option value="usa">USA</option>
+  <option value="eu1">Canada, Austria, Sweden, Italy, Finland, Portugal, Spain, Denmark</option>
+  <option value="eu2">UK, Ireland, Luxembourg, Netherlands, Belgium, France, Germany</option>
+  <option value="hongKong">Hong Kong</option>
+  <option value="chinaGuam">China, Guam</option>
+  <option value="other">Other</option>
+</select>
+
+
+<form>
+  <label for="listingPrice">Listing price:</label><br>
+  <input type="text" id="listingPrice" name="listingPrice"><br>
+</form>
+
 
 <script>
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
+  var element = document.getElementById("goatCurrency");
+  element.addEventListener('mousedown', function () {
+    this.size = 5;
+  });
+  element.addEventListener('change', function () {
+    this.blur();
+  });
+  element.addEventListener('blur', function () {
+    this.size = 0;
+  });
 
-function filterFunction() {
-  var input, filter, ul, li, a, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  div = document.getElementById("myDropdown");
-  a = div.getElementsByTagName("a");
-  for (i = 0; i < a.length; i++) {
-    txtValue = a[i].textContent || a[i].innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      a[i].style.display = "";
-    } else {
-      a[i].style.display = "none";
+  <!-- Not needed atm
+    /* When the user clicks on the button,
+  toggle between hiding and showing the dropdown content */
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+  function filterFunction() {
+    var input, filter, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+      txtValue = a[i].textContent || a[i].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        a[i].style.display = "";
+      } else {
+        a[i].style.display = "none";
+      }
     }
   }
-}
-</script>
+-->
 
+</script>
 </body>
 </html>
-
