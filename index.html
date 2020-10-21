@@ -77,7 +77,7 @@
     }
 
     label {
-      font-size: 16px;
+      font-size: 18px;
       font-family: sans-serif;
     }
 
@@ -274,9 +274,9 @@
 -->
 
 <!-- Datalist of currencies -->
-<label for="goatCurrency">Enter currency on Goat:</label>
+<label for="goatCurrency">Currency used in your Goat app:</label>
 <br>
-<input list="goatCurrency" style="width:60px;height:30px;font-size:20px;;text-align:center;text-transform: uppercase">
+<input list="goatCurrency" style="width:70px;height:20px;font-size:18px;;text-align:center;text-transform: uppercase">
 <datalist id="goatCurrency">
   <option value="aed">AED</option>
   <option value="afn">AFN</option>
@@ -447,13 +447,12 @@
   <option value="zmw">ZMW</option>
   <option value="zwl">ZWL</option>
 </datalist>
-
 <br>
 
-<label for="exchangeCurrency">Enter payout currency:</label>
+<label for="exchangeCurrency">Currency you want to exchange to:</label>
 <br>
 <input list="exchangeCurrency"
-       style="width:60px;height:30px;font-size:20px;;text-align:center;text-transform: uppercase">
+       style="width:70px;height:20px;font-size:18px;;text-align:center;text-transform:uppercase">
 <datalist id="exchangeCurrency">
   <option value="aed">AED</option>
   <option value="afn">AFN</option>
@@ -624,11 +623,12 @@
   <option value="zmw">ZMW</option>
   <option value="zwl">ZWL</option>
 </datalist>
-
 <br>
 
 <!-- Select list of seller locations -->
-<select name="location" id="location">
+<label for="location">Select your location</label>
+<br>
+<select name="location" id="location" style="font-size:16px;text-align:center">
   <option value="usa">USA</option>
   <option value="eu1">Canada, Austria, Sweden, Italy, Finland, Portugal, Spain, Denmark</option>
   <option value="eu2">UK, Ireland, Luxembourg, Netherlands, Belgium, France, Germany</option>
@@ -636,11 +636,13 @@
   <option value="chinaGuam">China, Guam</option>
   <option value="other">Other</option>
 </select>
+<br>
 
-
+<br>
 <form>
   <label for="listingPrice">Listing price:</label><br>
-  <input type="text" id="listingPrice" name="listingPrice"><br>
+  <input type="text" id="listingPrice" name="listingPrice"
+         style="width:60px;height:20px;font-size:18px;;text-align:center"><br>
 </form>
 
 
